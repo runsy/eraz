@@ -21,6 +21,8 @@ Hold the special key (aux) to spawn a fixed merchantz.
 
 Register your loots in an easy way. Period.
 
+You can create a "user.lua" file with your loots definitions.
+
 ## Edit the merchants
 
 Hold the special key (aux) and rightclick the merchantz. It requires the server priv.
