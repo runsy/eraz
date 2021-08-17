@@ -1,0 +1,24 @@
+# textdomain: eraz
+Merchant=Mercader
+Money=Dinero
+Cost=Coste
+item(s)=producto(s)
+Amount/Price=Cantidad/Precio
+Click to add to the basket=Clic para añadir a la cesta
+Click to delete from the basket=Clic para eliminar de la cesta
+Buy=Comprar
+Close=Cerrar
+Name=Nombre
+Loot=Lote
+Fixed=Estático
+Remove=Eliminar
+Show name=Mostrar nombre
+This merchant has not loot.=Este mercader no tiene nada que vender.
+The merchant has been removed.=El mercader ha sido eliminado.
+The merchant has died.=El mercader ha muerto.
+This merchant is already trading with another player.=Este mercader ya está comerciando con otro jugador.
+You have purchased products with a value of=Has comprado productos por valor de
+You have not enough money!=¡No tienes suficiente dinero!
+You have not selected products to buy!=No has seleccionado productos para comprar
+Adventurer Jacket=Chaqueta de aventurero
+Adventurer Boots=Botas de aventurero
