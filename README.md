@@ -1,4 +1,4 @@
-# Errand Merchands
+# MerchandZ
 
 Merchants to trading with.
 
