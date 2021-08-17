@@ -1,6 +1,29 @@
 # MerchandZ
 
-Merchants to trading with.
+Are you tired of complicated and absurd trading mods? Do you want the best trading mod on the market?
+
+If your answer is yes, you are in luck! MerchantZ, the ultimate mod, is here.
+
+## Merchantz
+
+- They are cute characters.
+- You can put them in the world and they add themselves to trade with the players.
+
+### Wandering or Fixed
+
+Hold the special key (aux) to spawn a fixed merchantz.
+
+## Simple Trading System
+
+- Click and buy!
+
+## Loots
+
+Register your loots in an easy way. Period.
+
+## Edit the merchants
+
+Hold the special key (aux) and rightclick the merchantz. It requires the server priv.
 
 ## Licenses
 
