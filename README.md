@@ -29,7 +29,7 @@ Hold the special key (aux) and rightclick the merchantz. It requires the server 
 
 ## Spawn
 
-By default some merchants spawn in the world.
+By default some merchants spawn in the world and after a time are leaving.
 See the 'eraz.conf' file to enable/disable and config.
 
 ## Licenses
