@@ -29,7 +29,8 @@ Hold the special key (aux) and rightclick the merchantz. It requires the server 
 
 ## Spawn
 
-By default some merchants spawn in the world
+By default some merchants spawn in the world.
+See
 
 ## Licenses
 
