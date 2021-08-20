@@ -1,4 +1,7 @@
+local S = ...
+
 eraz.register_loot("basic_food", {
+	description = S("basic food"),
 	type = "fixed",
 	items = {
 		apple = {

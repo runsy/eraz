@@ -43,6 +43,9 @@ minetest.register_entity("eraz:merchant",{
 
 	on_step = function(self, dtime)
 		mobkit.stepfunc(self, dtime) -- required
+		if self.spawned then
+			eraz.lifetime(self)
+		end
 	end,
 
 	on_rightclick = function(self, clicker)

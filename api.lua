@@ -2,16 +2,12 @@ local S = ...
 
 --Helper Funtions
 
-local function is_table_empty(_table)
+eraz.is_table_empty = function(_table)
     return next(_table) == nil
 end
 
 local function is_srt_empty(s)
   return s == nil or s == ''
-end
-
-local function round(x)
-  return x>=0 and math.floor(x+0.5) or math.ceil(x-0.5)
 end
 
 local function boolean_to_string(var)
@@ -56,8 +52,8 @@ local function set_cloths()
 	return cloths
 end
 
-local function set_loot()
-	if is_table_empty(eraz.loots) then
+eraz.set_loot = function()
+	if eraz.is_table_empty(eraz.loots) then
 		return nil
 	end
 	local keyset = {}
@@ -128,8 +124,11 @@ function eraz.set_initial_properties(self, staticdata, dtime_s)
 		local cloths = set_cloths()
 		local cloth = compose_cloth(base_texture, cloths)
 		self.cloth = mobkit.remember(self, "cloth", cloth)
-		self.loot = mobkit.remember(self, "loot", set_loot())
+		if not self.loot then
+			self.loot = mobkit.remember(self, "loot", eraz.set_loot())
+		end
 		self.show_name = mobkit.remember(self, "show_name", false)
+		--self.spawned already defined when spawned
 	else
 		self.cloth = mobkit.recall(self, "cloth")
 		self.base_texture = mobkit.recall(self, "base_texture")
@@ -138,6 +137,10 @@ function eraz.set_initial_properties(self, staticdata, dtime_s)
 		self.type = mobkit.recall(self, "type")
 		self.nick = mobkit.recall(self, "nick") or S("Merchant")
 		self.show_name = mobkit.recall(self, "show_name") or false
+		self.spawned = mobkit.recall(self, "spawned")
+		if self.spawned then
+			self.lifetime = mobkit.recall(self, "lifetime") or eraz.settings.lifetime
+		end
 	end
 	local model
 	if self.gender == "female" then
@@ -248,7 +251,7 @@ local function get_items_basket(player)
 	local total_cost = 0
 	local player_name = player:get_player_name()
 	local context = get_context(player_name)
-	if is_table_empty(context.basket) then
+	if eraz.is_table_empty(context.basket) then
 		return items_basket, total_cost
 	end
 	local col = 0
@@ -343,9 +346,6 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		update_nick(context.merchant)
 	end
 	if fields.btn_remove then
-		if context.merchant.trading then
-			minetest.close_formspec(player_name, "eraz:merchant")
-		end
 		eraz.cancel_trading(context.merchant, S("The merchant has been removed."))
 		context.merchant.object:remove()
 	end
@@ -377,7 +377,7 @@ local function compose_formspec(self, player, msg)
 		scroll_container[0.5,1.25;3,3;scroll_buy;vertical;]
 			]]..items_loot..[[
 		scroll_container_end[]
-		scrollbaroptions[min=0;max=]]..tostring(round(items_count))
+		scrollbaroptions[min=0;max=]]..tostring(math.round(items_count))
 			..[[;smallstep=]]..items_count_str..[[;largestep=]]..items_count_str..[[]
 		style_type[scroll_buy;bgcolor=#446699]
 		scrollbar[3.5,1.25;0.5,3;vertical;scroll_buy;0]
@@ -385,7 +385,7 @@ local function compose_formspec(self, player, msg)
 		scroll_container[4.25,1.25;3,3;scroll_basket;vertical;]
 			]]..items_basket..[[
 		scroll_container_end[]
-		scrollbaroptions[min=0;max=]]..tostring(round(items_count))
+		scrollbaroptions[min=0;max=]]..tostring(math.round(items_count))
 			..[[;smallstep=]]..items_count_str..[[;largestep=]]..items_count_str..[[]
 		scrollbar[7.25,1.25;0.5,3;vertical;scroll_basket;0]
 		button_exit[5.125,5;1,1;btn_buy;]]..S("Buy")..[[]

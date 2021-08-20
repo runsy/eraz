@@ -27,6 +27,10 @@ You can create a "user.lua" file with your loots definitions.
 
 Hold the special key (aux) and rightclick the merchantz. It requires the server priv.
 
+## Spawn
+
+By default some merchants spawn in the world
+
 ## Licenses
 
 - Code: GPL v3.0
