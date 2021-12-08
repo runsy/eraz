@@ -20,5 +20,5 @@ if eraz.settings.spawn then
 end
 local user_file = modpath .. "/user.lua"
 if eraz.file_exists(user_file) then
-	assert(loadfile(user_file))()
+	assert(loadfile(user_file))(S)
 end

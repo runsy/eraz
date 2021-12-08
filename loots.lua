@@ -16,3 +16,4 @@ eraz.register_loot("basic_food", {
 		},
 	},
 })
+

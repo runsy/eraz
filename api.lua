@@ -10,6 +10,10 @@ local function is_srt_empty(s)
   return s == nil or s == ''
 end
 
+local function round(x)
+	return x>=0 and math.floor(x+0.5) or math.ceil(x-0.5)
+end
+
 local function boolean_to_string(var)
 	if var or var == 1 or var == "true" then
 		return "true"
@@ -377,7 +381,7 @@ local function compose_formspec(self, player, msg)
 		scroll_container[0.5,1.25;3,3;scroll_buy;vertical;]
 			]]..items_loot..[[
 		scroll_container_end[]
-		scrollbaroptions[min=0;max=]]..tostring(math.round(items_count))
+		scrollbaroptions[min=0;max=]]..tostring(round(items_count))
 			..[[;smallstep=]]..items_count_str..[[;largestep=]]..items_count_str..[[]
 		style_type[scroll_buy;bgcolor=#446699]
 		scrollbar[3.5,1.25;0.5,3;vertical;scroll_buy;0]
@@ -385,7 +389,7 @@ local function compose_formspec(self, player, msg)
 		scroll_container[4.25,1.25;3,3;scroll_basket;vertical;]
 			]]..items_basket..[[
 		scroll_container_end[]
-		scrollbaroptions[min=0;max=]]..tostring(math.round(items_count))
+		scrollbaroptions[min=0;max=]]..tostring(round(items_count))
 			..[[;smallstep=]]..items_count_str..[[;largestep=]]..items_count_str..[[]
 		scrollbar[7.25,1.25;0.5,3;vertical;scroll_basket;0]
 		button_exit[5.125,5;1,1;btn_buy;]]..S("Buy")..[[]
